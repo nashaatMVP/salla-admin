@@ -19,14 +19,14 @@ class DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
+      backgroundColor: Colors.deepPurple.shade200,
       appBar: AppBar(
         title: const TitlesTextWidget(label: "Admin Panel"),
         centerTitle: true,
         actions: [
           IconButton(
             onPressed: () {
-              themeProvider.setDarkTheme(
-                  themeValue: !themeProvider.getIsDarkTheme);
+              themeProvider.setDarkTheme(themeValue: !themeProvider.getIsDarkTheme);
             },
             icon: Icon(
               themeProvider.getIsDarkTheme ? Icons.light_mode : Icons.dark_mode,
@@ -35,17 +35,20 @@ class DashboardScreenState extends State<DashboardScreen> {
         ],
       ),
       body: GridView.count(
-        crossAxisCount: 2,
+        crossAxisCount: 3,
         children: List.generate(
           DashboardButtonModel.dashboardButtonList(context).length,
-          (index) => DashBoardCard(
-              imagePath:
-                  DashboardButtonModel.dashboardButtonList(context)[index]
-                      .imagePath,
-              text:
-                  DashboardButtonModel.dashboardButtonList(context)[index].text,
-              onTap: DashboardButtonModel.dashboardButtonList(context)[index]
-                  .onTap),
+          (index) => Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: DashBoardCard(
+                imagePath:
+                    DashboardButtonModel.dashboardButtonList(context)[index]
+                        .imagePath,
+                text:
+                    DashboardButtonModel.dashboardButtonList(context)[index].text,
+                onTap: DashboardButtonModel.dashboardButtonList(context)[index].onTap,
+            ),
+          ),
         ),
       ),
     );

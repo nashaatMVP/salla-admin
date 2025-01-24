@@ -13,7 +13,6 @@ import 'screens/search_screen.dart';
 
 void main() {
   runApp(const MyApp());
-
 }
 
 class MyApp extends StatelessWidget {
@@ -23,9 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<FirebaseApp>(
-        future: Firebase.initializeApp(
-            // options: DefaultFirebaseOptions.currentPlatform,
-            ),
+        future: Firebase.initializeApp( /* options: DefaultFirebaseOptions.currentPlatform, */),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const MaterialApp(
@@ -41,7 +38,7 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               home: Scaffold(
                 body: Center(
-                  child: SelectableText(snapshot.error.toString()),
+                  child: SelectableText(snapshot.error.toString(),maxLines: 2),
                 ),
               ),
             );

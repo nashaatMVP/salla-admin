@@ -13,35 +13,33 @@ class DashBoardCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(2.0),
-      child: InkWell(
-        onTap: () {
-          onTap();
-        },
-        child: Card(
-          shadowColor: const Color.fromARGB(255, 168, 134, 53),
-          elevation: 70,
-          color: Colors.grey[400],
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  imagePath,
-                  height: 70,
-                  width: 70,
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                SubtitleTextWidget(
-                  label: text,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ],
-            ),
+    return InkWell(
+      onTap: () {
+        onTap();
+      },
+      child: Card(
+        elevation: 30,
+        color: Colors.black,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Image.asset(
+                imagePath,
+                height: 30,
+                width: 30,
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              SubtitleTextWidget(
+                label: text,
+                fontWeight: FontWeight.w700,
+                color: Colors.white,
+                fontSize: 14,
+              ),
+            ],
           ),
         ),
       ),

@@ -42,5 +42,4 @@ flutter:
   
   assets:
     - images/
-    - images/categories/
     - images/dashboard/
